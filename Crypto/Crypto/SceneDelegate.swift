@@ -17,20 +17,34 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = LaunchScreenVC()
-        window?.makeKeyAndVisible()
-        
-//        var rootViewController: UIViewController
-//        
-//        if !UserDefaults.standard.bool(forKey: "isFirstTimeLaunch") {
-//            UserDefaults.standard.set(true, forKey: "isFirstTimeLaunch")
-//            rootViewController = DemoViewController()
-//        } else {
-//            rootViewController = TabbarController()
-//        }
-//        
-//        window?.rootViewController = rootViewController
-//        window?.makeKeyAndVisible()
+
+        let isFirstTimeLaunch = !UserDefaults.standard.bool(forKey: "isFirstTimeLaunch")
+        var rootViewController: UIViewController
+
+        if isFirstTimeLaunch {
+            UserDefaults.standard.set(true, forKey: "isFirstTimeLaunch")
+            let launchScreenVC = LaunchScreenVC()
+            rootViewController = UINavigationController(rootViewController: launchScreenVC)
+            window?.rootViewController = rootViewController
+            window?.makeKeyAndVisible()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                let onboardingViewController = OnBoardingViewController()
+                self.window?.rootViewController = UINavigationController(rootViewController: onboardingViewController)
+            }
+        } else {
+            let launchScreenVC = LaunchScreenVC()
+            rootViewController = UINavigationController(rootViewController: launchScreenVC)
+            window?.rootViewController = rootViewController
+            window?.makeKeyAndVisible()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                let cryptoVC = CryptoVC()
+                self.window?.rootViewController = UINavigationController(rootViewController: cryptoVC)
+            }
+        }
+
+
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

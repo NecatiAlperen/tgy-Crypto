@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		3B491D252BE6FA6B004998D8 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 3B491D242BE6FA6B004998D8 /* Lottie */; };
 		3B491D2B2BE706D0004998D8 /* anmt.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B491D2A2BE706D0004998D8 /* anmt.json */; };
+		3BC105A82BE7FC8500058C25 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC105A72BE7FC8500058C25 /* OnboardingVC.swift */; };
+		3BC105AC2BE8005500058C25 /* CryptoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC105AB2BE8005500058C25 /* CryptoVC.swift */; };
+		3BC105AE2BE8037600058C25 /* CryptoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC105AD2BE8037600058C25 /* CryptoCell.swift */; };
 		3BD368BD2BE6ED0100A79019 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD368BC2BE6ED0100A79019 /* AppDelegate.swift */; };
 		3BD368BF2BE6ED0100A79019 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD368BE2BE6ED0100A79019 /* SceneDelegate.swift */; };
 		3BD368C12BE6ED0100A79019 /* LaunchScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD368C02BE6ED0100A79019 /* LaunchScreenVC.swift */; };
@@ -18,6 +21,9 @@
 
 /* Begin PBXFileReference section */
 		3B491D2A2BE706D0004998D8 /* anmt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = anmt.json; sourceTree = "<group>"; };
+		3BC105A72BE7FC8500058C25 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
+		3BC105AB2BE8005500058C25 /* CryptoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoVC.swift; sourceTree = "<group>"; };
+		3BC105AD2BE8037600058C25 /* CryptoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCell.swift; sourceTree = "<group>"; };
 		3BD368B92BE6ED0100A79019 /* Crypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crypto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BD368BC2BE6ED0100A79019 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BD368BE2BE6ED0100A79019 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +67,9 @@
 				3BD368BC2BE6ED0100A79019 /* AppDelegate.swift */,
 				3BD368BE2BE6ED0100A79019 /* SceneDelegate.swift */,
 				3BD368C02BE6ED0100A79019 /* LaunchScreenVC.swift */,
+				3BC105A72BE7FC8500058C25 /* OnboardingVC.swift */,
+				3BC105AB2BE8005500058C25 /* CryptoVC.swift */,
+				3BC105AD2BE8037600058C25 /* CryptoCell.swift */,
 				3B491D2A2BE706D0004998D8 /* anmt.json */,
 				3BD368C52BE6ED0200A79019 /* Assets.xcassets */,
 				3BD368C72BE6ED0200A79019 /* LaunchScreen.storyboard */,
@@ -147,8 +156,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BD368C12BE6ED0100A79019 /* LaunchScreenVC.swift in Sources */,
+				3BC105A82BE7FC8500058C25 /* OnboardingVC.swift in Sources */,
+				3BC105AE2BE8037600058C25 /* CryptoCell.swift in Sources */,
 				3BD368BD2BE6ED0100A79019 /* AppDelegate.swift in Sources */,
 				3BD368BF2BE6ED0100A79019 /* SceneDelegate.swift in Sources */,
+				3BC105AC2BE8005500058C25 /* CryptoVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
