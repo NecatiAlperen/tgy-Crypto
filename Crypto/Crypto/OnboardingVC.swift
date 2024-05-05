@@ -93,7 +93,7 @@ extension OnBoardingViewController {
             pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             pageControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             
-            skipButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            skipButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             skipButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16)
         ])
     }
