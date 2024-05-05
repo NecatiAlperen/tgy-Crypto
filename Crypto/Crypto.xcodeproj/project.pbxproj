@@ -7,20 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B491D252BE6FA6B004998D8 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 3B491D242BE6FA6B004998D8 /* Lottie */; };
+		3B491D2B2BE706D0004998D8 /* anmt.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B491D2A2BE706D0004998D8 /* anmt.json */; };
 		3BD368BD2BE6ED0100A79019 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD368BC2BE6ED0100A79019 /* AppDelegate.swift */; };
 		3BD368BF2BE6ED0100A79019 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD368BE2BE6ED0100A79019 /* SceneDelegate.swift */; };
-		3BD368C12BE6ED0100A79019 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD368C02BE6ED0100A79019 /* ViewController.swift */; };
-		3BD368C42BE6ED0100A79019 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BD368C22BE6ED0100A79019 /* Main.storyboard */; };
+		3BD368C12BE6ED0100A79019 /* LaunchScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD368C02BE6ED0100A79019 /* LaunchScreenVC.swift */; };
 		3BD368C62BE6ED0200A79019 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BD368C52BE6ED0200A79019 /* Assets.xcassets */; };
 		3BD368C92BE6ED0200A79019 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BD368C72BE6ED0200A79019 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B491D2A2BE706D0004998D8 /* anmt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = anmt.json; sourceTree = "<group>"; };
 		3BD368B92BE6ED0100A79019 /* Crypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crypto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BD368BC2BE6ED0100A79019 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BD368BE2BE6ED0100A79019 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3BD368C02BE6ED0100A79019 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3BD368C32BE6ED0100A79019 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3BD368C02BE6ED0100A79019 /* LaunchScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenVC.swift; sourceTree = "<group>"; };
 		3BD368C52BE6ED0200A79019 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3BD368C82BE6ED0200A79019 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3BD368CA2BE6ED0200A79019 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B491D252BE6FA6B004998D8 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,8 +60,8 @@
 			children = (
 				3BD368BC2BE6ED0100A79019 /* AppDelegate.swift */,
 				3BD368BE2BE6ED0100A79019 /* SceneDelegate.swift */,
-				3BD368C02BE6ED0100A79019 /* ViewController.swift */,
-				3BD368C22BE6ED0100A79019 /* Main.storyboard */,
+				3BD368C02BE6ED0100A79019 /* LaunchScreenVC.swift */,
+				3B491D2A2BE706D0004998D8 /* anmt.json */,
 				3BD368C52BE6ED0200A79019 /* Assets.xcassets */,
 				3BD368C72BE6ED0200A79019 /* LaunchScreen.storyboard */,
 				3BD368CA2BE6ED0200A79019 /* Info.plist */,
@@ -83,6 +85,9 @@
 			dependencies = (
 			);
 			name = Crypto;
+			packageProductDependencies = (
+				3B491D242BE6FA6B004998D8 /* Lottie */,
+			);
 			productName = Crypto;
 			productReference = 3BD368B92BE6ED0100A79019 /* Crypto.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +116,9 @@
 				Base,
 			);
 			mainGroup = 3BD368B02BE6ED0100A79019;
+			packageReferences = (
+				3B491D232BE6FA6B004998D8 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 3BD368BA2BE6ED0100A79019 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,8 +134,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BD368C92BE6ED0200A79019 /* LaunchScreen.storyboard in Resources */,
+				3B491D2B2BE706D0004998D8 /* anmt.json in Resources */,
 				3BD368C62BE6ED0200A79019 /* Assets.xcassets in Resources */,
-				3BD368C42BE6ED0100A79019 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BD368C12BE6ED0100A79019 /* ViewController.swift in Sources */,
+				3BD368C12BE6ED0100A79019 /* LaunchScreenVC.swift in Sources */,
 				3BD368BD2BE6ED0100A79019 /* AppDelegate.swift in Sources */,
 				3BD368BF2BE6ED0100A79019 /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +155,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3BD368C22BE6ED0100A79019 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3BD368C32BE6ED0100A79019 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3BD368C72BE6ED0200A79019 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -297,7 +297,6 @@
 				INFOPLIST_FILE = Crypto/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -325,7 +324,6 @@
 				INFOPLIST_FILE = Crypto/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -363,6 +361,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3B491D232BE6FA6B004998D8 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3B491D242BE6FA6B004998D8 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B491D232BE6FA6B004998D8 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3BD368B12BE6ED0100A79019 /* Project object */;
 }
