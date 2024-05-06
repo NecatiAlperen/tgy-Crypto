@@ -17,13 +17,34 @@ class CryptoVC: UIViewController {
         return tableView
     }()
     
+    
+    private let webservice = Webservice()
+    
+    private var coins: [Coin] = [] {
+            didSet {
+                tableView.reloadData()
+            }
+        }
+    
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        
+        title = "Cryptos"
+        fetchCoins()
         
     }
-    
+    private func fetchCoins() {
+            webservice.fetchCoins { result in
+                switch result {
+                case .success(let coins):
+                    self.coins = coins 
+                case .failure(let error):
+                    print("Error fetching coins: \(error.localizedDescription)")
+                }
+            }
+        }
     private func setupTableView(){
         view.backgroundColor = .systemBlue
         view.addSubview(tableView) 
@@ -47,7 +68,7 @@ class CryptoVC: UIViewController {
 extension CryptoVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return coins.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -55,6 +76,7 @@ extension CryptoVC: UITableViewDataSource {
             fatalError()
         }
         
+        cell.configure(with: coins[indexPath.row])
         return cell
     }
     

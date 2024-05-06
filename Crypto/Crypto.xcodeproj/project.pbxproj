@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3B491D252BE6FA6B004998D8 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 3B491D242BE6FA6B004998D8 /* Lottie */; };
 		3B491D2B2BE706D0004998D8 /* anmt.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B491D2A2BE706D0004998D8 /* anmt.json */; };
+		3B4C68372BE8E2AF006C9FCD /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C68362BE8E2AF006C9FCD /* Webservice.swift */; };
+		3B4C683A2BE8E847006C9FCD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3B4C68392BE8E847006C9FCD /* Kingfisher */; };
 		3BC105A82BE7FC8500058C25 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC105A72BE7FC8500058C25 /* OnboardingVC.swift */; };
 		3BC105AC2BE8005500058C25 /* CryptoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC105AB2BE8005500058C25 /* CryptoVC.swift */; };
 		3BC105AE2BE8037600058C25 /* CoinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC105AD2BE8037600058C25 /* CoinCell.swift */; };
@@ -24,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		3B491D2A2BE706D0004998D8 /* anmt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = anmt.json; sourceTree = "<group>"; };
+		3B4C68362BE8E2AF006C9FCD /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		3BC105A72BE7FC8500058C25 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		3BC105AB2BE8005500058C25 /* CryptoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoVC.swift; sourceTree = "<group>"; };
 		3BC105AD2BE8037600058C25 /* CoinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCell.swift; sourceTree = "<group>"; };
@@ -42,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B4C683A2BE8E847006C9FCD /* Kingfisher in Frameworks */,
 				3B491D252BE6FA6B004998D8 /* Lottie in Frameworks */,
 				3BC105B52BE83FD700058C25 /* AlamofireDynamic in Frameworks */,
 				3BC105B32BE83FD700058C25 /* Alamofire in Frameworks */,
@@ -51,6 +55,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B4C68342BE8E02A006C9FCD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3BC105AF2BE83E2B00058C25 /* Coin.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3B4C68352BE8E290006C9FCD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3B4C68362BE8E2AF006C9FCD /* Webservice.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		3BD368B02BE6ED0100A79019 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +90,8 @@
 		3BD368BB2BE6ED0100A79019 /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
+				3B4C68352BE8E290006C9FCD /* Services */,
+				3B4C68342BE8E02A006C9FCD /* Model */,
 				3BD368BC2BE6ED0100A79019 /* AppDelegate.swift */,
 				3BD368BE2BE6ED0100A79019 /* SceneDelegate.swift */,
 				3BD368C02BE6ED0100A79019 /* LaunchScreenVC.swift */,
@@ -80,7 +102,6 @@
 				3BD368C52BE6ED0200A79019 /* Assets.xcassets */,
 				3BD368C72BE6ED0200A79019 /* LaunchScreen.storyboard */,
 				3BD368CA2BE6ED0200A79019 /* Info.plist */,
-				3BC105AF2BE83E2B00058C25 /* Coin.swift */,
 			);
 			path = Crypto;
 			sourceTree = "<group>";
@@ -105,6 +126,7 @@
 				3B491D242BE6FA6B004998D8 /* Lottie */,
 				3BC105B22BE83FD700058C25 /* Alamofire */,
 				3BC105B42BE83FD700058C25 /* AlamofireDynamic */,
+				3B4C68392BE8E847006C9FCD /* Kingfisher */,
 			);
 			productName = Crypto;
 			productReference = 3BD368B92BE6ED0100A79019 /* Crypto.app */;
@@ -137,6 +159,7 @@
 			packageReferences = (
 				3B491D232BE6FA6B004998D8 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				3BC105B12BE83FD700058C25 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				3B4C68382BE8E847006C9FCD /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 3BD368BA2BE6ED0100A79019 /* Products */;
 			projectDirPath = "";
@@ -168,6 +191,7 @@
 				3BD368C12BE6ED0100A79019 /* LaunchScreenVC.swift in Sources */,
 				3BC105A82BE7FC8500058C25 /* OnboardingVC.swift in Sources */,
 				3BC105AE2BE8037600058C25 /* CoinCell.swift in Sources */,
+				3B4C68372BE8E2AF006C9FCD /* Webservice.swift in Sources */,
 				3BD368BD2BE6ED0100A79019 /* AppDelegate.swift in Sources */,
 				3BD368BF2BE6ED0100A79019 /* SceneDelegate.swift in Sources */,
 				3BC105AC2BE8005500058C25 /* CryptoVC.swift in Sources */,
@@ -394,6 +418,14 @@
 				minimumVersion = 4.4.3;
 			};
 		};
+		3B4C68382BE8E847006C9FCD /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.0;
+			};
+		};
 		3BC105B12BE83FD700058C25 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -409,6 +441,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3B491D232BE6FA6B004998D8 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		3B4C68392BE8E847006C9FCD /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B4C68382BE8E847006C9FCD /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		3BC105B22BE83FD700058C25 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

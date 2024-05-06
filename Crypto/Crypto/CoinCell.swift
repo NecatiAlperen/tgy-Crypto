@@ -75,8 +75,12 @@ class CoinCell : UITableViewCell{
     
     
     public func configure(with model: Coin){
-        //TODO: CONFİGURE CELL İTEMS WİTH MODEL
+        coinSymbol.text = model.symbol
+        coinName.text = model.name
+        coinPrice.text = model.price
+        coinChange.text = model.change
     }
+
     
     
     private func setupUI() {
@@ -98,11 +102,10 @@ class CoinCell : UITableViewCell{
             // Name StackView Constraints
             nameStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
             nameStackView.leadingAnchor.constraint(equalTo: coinLogo.trailingAnchor, constant: 16),
-            nameStackView.trailingAnchor.constraint(equalTo: priceStackView.leadingAnchor, constant: -16), // Added
-            
+            nameStackView.trailingAnchor.constraint(equalTo: priceStackView.leadingAnchor, constant: -16),
             // Price StackView Constraints
             priceStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            priceStackView.widthAnchor.constraint(equalToConstant: 120) // Added width constraint for priceStackView
+            priceStackView.widthAnchor.constraint(equalToConstant: 120)  
         ])
     }
 
