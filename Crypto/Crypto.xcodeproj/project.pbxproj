@@ -10,7 +10,9 @@
 		3B491D252BE6FA6B004998D8 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 3B491D242BE6FA6B004998D8 /* Lottie */; };
 		3B491D2B2BE706D0004998D8 /* anmt.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B491D2A2BE706D0004998D8 /* anmt.json */; };
 		3B4C68372BE8E2AF006C9FCD /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C68362BE8E2AF006C9FCD /* Webservice.swift */; };
-		3B4C683A2BE8E847006C9FCD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3B4C68392BE8E847006C9FCD /* Kingfisher */; };
+		3B4C683D2BE8EB1E006C9FCD /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3B4C683C2BE8EB1E006C9FCD /* SDWebImage */; };
+		3B4C683F2BE8EB1E006C9FCD /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3B4C683E2BE8EB1E006C9FCD /* SDWebImageMapKit */; };
+		3B4C68442BE9017E006C9FCD /* CryptoDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C68432BE9017E006C9FCD /* CryptoDetailVC.swift */; };
 		3BC105A82BE7FC8500058C25 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC105A72BE7FC8500058C25 /* OnboardingVC.swift */; };
 		3BC105AC2BE8005500058C25 /* CryptoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC105AB2BE8005500058C25 /* CryptoVC.swift */; };
 		3BC105AE2BE8037600058C25 /* CoinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC105AD2BE8037600058C25 /* CoinCell.swift */; };
@@ -21,12 +23,12 @@
 		3BD368BF2BE6ED0100A79019 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD368BE2BE6ED0100A79019 /* SceneDelegate.swift */; };
 		3BD368C12BE6ED0100A79019 /* LaunchScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD368C02BE6ED0100A79019 /* LaunchScreenVC.swift */; };
 		3BD368C62BE6ED0200A79019 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BD368C52BE6ED0200A79019 /* Assets.xcassets */; };
-		3BD368C92BE6ED0200A79019 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BD368C72BE6ED0200A79019 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3B491D2A2BE706D0004998D8 /* anmt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = anmt.json; sourceTree = "<group>"; };
 		3B4C68362BE8E2AF006C9FCD /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
+		3B4C68432BE9017E006C9FCD /* CryptoDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailVC.swift; sourceTree = "<group>"; };
 		3BC105A72BE7FC8500058C25 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		3BC105AB2BE8005500058C25 /* CryptoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoVC.swift; sourceTree = "<group>"; };
 		3BC105AD2BE8037600058C25 /* CoinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCell.swift; sourceTree = "<group>"; };
@@ -36,7 +38,6 @@
 		3BD368BE2BE6ED0100A79019 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3BD368C02BE6ED0100A79019 /* LaunchScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenVC.swift; sourceTree = "<group>"; };
 		3BD368C52BE6ED0200A79019 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3BD368C82BE6ED0200A79019 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3BD368CA2BE6ED0200A79019 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -45,9 +46,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B4C683A2BE8E847006C9FCD /* Kingfisher in Frameworks */,
 				3B491D252BE6FA6B004998D8 /* Lottie in Frameworks */,
+				3B4C683F2BE8EB1E006C9FCD /* SDWebImageMapKit in Frameworks */,
 				3BC105B52BE83FD700058C25 /* AlamofireDynamic in Frameworks */,
+				3B4C683D2BE8EB1E006C9FCD /* SDWebImage in Frameworks */,
 				3BC105B32BE83FD700058C25 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -55,6 +57,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B4BAD9F2BE93C6800F1AE9E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3BC105A72BE7FC8500058C25 /* OnboardingVC.swift */,
+				3BC105AB2BE8005500058C25 /* CryptoVC.swift */,
+				3BD368C02BE6ED0100A79019 /* LaunchScreenVC.swift */,
+				3B4C68432BE9017E006C9FCD /* CryptoDetailVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3B4BADA02BE93CC200F1AE9E /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				3BD368BC2BE6ED0100A79019 /* AppDelegate.swift */,
+				3BD368BE2BE6ED0100A79019 /* SceneDelegate.swift */,
+				3BD368CA2BE6ED0200A79019 /* Info.plist */,
+				3BD368C52BE6ED0200A79019 /* Assets.xcassets */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		3B4BADA12BE93D7600F1AE9E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3BC105AD2BE8037600058C25 /* CoinCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		3B4BADA32BE93E0500F1AE9E /* LottieData */ = {
+			isa = PBXGroup;
+			children = (
+				3B491D2A2BE706D0004998D8 /* anmt.json */,
+			);
+			path = LottieData;
+			sourceTree = "<group>";
+		};
 		3B4C68342BE8E02A006C9FCD /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,18 +130,12 @@
 		3BD368BB2BE6ED0100A79019 /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
+				3B4BADA32BE93E0500F1AE9E /* LottieData */,
+				3B4BADA12BE93D7600F1AE9E /* Cells */,
+				3B4BADA02BE93CC200F1AE9E /* SupportingFiles */,
+				3B4BAD9F2BE93C6800F1AE9E /* Controllers */,
 				3B4C68352BE8E290006C9FCD /* Services */,
 				3B4C68342BE8E02A006C9FCD /* Model */,
-				3BD368BC2BE6ED0100A79019 /* AppDelegate.swift */,
-				3BD368BE2BE6ED0100A79019 /* SceneDelegate.swift */,
-				3BD368C02BE6ED0100A79019 /* LaunchScreenVC.swift */,
-				3BC105A72BE7FC8500058C25 /* OnboardingVC.swift */,
-				3BC105AB2BE8005500058C25 /* CryptoVC.swift */,
-				3BC105AD2BE8037600058C25 /* CoinCell.swift */,
-				3B491D2A2BE706D0004998D8 /* anmt.json */,
-				3BD368C52BE6ED0200A79019 /* Assets.xcassets */,
-				3BD368C72BE6ED0200A79019 /* LaunchScreen.storyboard */,
-				3BD368CA2BE6ED0200A79019 /* Info.plist */,
 			);
 			path = Crypto;
 			sourceTree = "<group>";
@@ -126,7 +160,8 @@
 				3B491D242BE6FA6B004998D8 /* Lottie */,
 				3BC105B22BE83FD700058C25 /* Alamofire */,
 				3BC105B42BE83FD700058C25 /* AlamofireDynamic */,
-				3B4C68392BE8E847006C9FCD /* Kingfisher */,
+				3B4C683C2BE8EB1E006C9FCD /* SDWebImage */,
+				3B4C683E2BE8EB1E006C9FCD /* SDWebImageMapKit */,
 			);
 			productName = Crypto;
 			productReference = 3BD368B92BE6ED0100A79019 /* Crypto.app */;
@@ -159,7 +194,7 @@
 			packageReferences = (
 				3B491D232BE6FA6B004998D8 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				3BC105B12BE83FD700058C25 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				3B4C68382BE8E847006C9FCD /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				3B4C683B2BE8EB1E006C9FCD /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 3BD368BA2BE6ED0100A79019 /* Products */;
 			projectDirPath = "";
@@ -175,7 +210,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BD368C92BE6ED0200A79019 /* LaunchScreen.storyboard in Resources */,
 				3B491D2B2BE706D0004998D8 /* anmt.json in Resources */,
 				3BD368C62BE6ED0200A79019 /* Assets.xcassets in Resources */,
 			);
@@ -190,6 +224,7 @@
 			files = (
 				3BD368C12BE6ED0100A79019 /* LaunchScreenVC.swift in Sources */,
 				3BC105A82BE7FC8500058C25 /* OnboardingVC.swift in Sources */,
+				3B4C68442BE9017E006C9FCD /* CryptoDetailVC.swift in Sources */,
 				3BC105AE2BE8037600058C25 /* CoinCell.swift in Sources */,
 				3B4C68372BE8E2AF006C9FCD /* Webservice.swift in Sources */,
 				3BD368BD2BE6ED0100A79019 /* AppDelegate.swift in Sources */,
@@ -200,17 +235,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		3BD368C72BE6ED0200A79019 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3BD368C82BE6ED0200A79019 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3BD368CB2BE6ED0200A79019 /* Debug */ = {
@@ -341,7 +365,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 93926563G8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Crypto/Info.plist;
+				INFOPLIST_FILE = Crypto/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -368,7 +392,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 93926563G8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Crypto/Info.plist;
+				INFOPLIST_FILE = Crypto/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -418,12 +442,12 @@
 				minimumVersion = 4.4.3;
 			};
 		};
-		3B4C68382BE8E847006C9FCD /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		3B4C683B2BE8EB1E006C9FCD /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 7.11.0;
+				minimumVersion = 5.19.1;
 			};
 		};
 		3BC105B12BE83FD700058C25 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
@@ -442,10 +466,15 @@
 			package = 3B491D232BE6FA6B004998D8 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
 		};
-		3B4C68392BE8E847006C9FCD /* Kingfisher */ = {
+		3B4C683C2BE8EB1E006C9FCD /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3B4C68382BE8E847006C9FCD /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
+			package = 3B4C683B2BE8EB1E006C9FCD /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		3B4C683E2BE8EB1E006C9FCD /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B4C683B2BE8EB1E006C9FCD /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
 		};
 		3BC105B22BE83FD700058C25 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

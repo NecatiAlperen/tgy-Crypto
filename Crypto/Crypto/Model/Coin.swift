@@ -18,19 +18,19 @@ struct CoinData: Codable {
 }
 
 struct Coin: Codable {
-    let uuid: String
-    let symbol: String
-    let name: String
-    let iconURL: String
-    let marketCap: String
-    let price: String
+    let uuid: String?
+    let symbol: String?
+    let name: String?
+    let iconUrl: String?
+    let marketCap: String?
+    let price: String?
     let change: String
-    let rank: Int
-    let coinrankingURL: String
+    let rank: Int?
+    let coinrankingURL: String?
 
     enum CodingKeys: String, CodingKey {
         case uuid, symbol, name
-        case iconURL = "iconUrl"
+        case iconUrl = "iconUrl"
         case marketCap, price, change, rank
         case coinrankingURL = "coinrankingUrl"
     }

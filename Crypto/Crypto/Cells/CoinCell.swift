@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import SDWebImage
+
+
 
 class CoinCell : UITableViewCell{
     
@@ -24,7 +27,7 @@ class CoinCell : UITableViewCell{
         let label = UILabel()
         label.textColor = .label
         label.textAlignment = .left
-        label.font = .systemFont(ofSize: 22,weight: .semibold)
+        label.font = .systemFont(ofSize: 18,weight: .semibold)
         label.text = "BTC"
         return label
     }()
@@ -32,7 +35,7 @@ class CoinCell : UITableViewCell{
         let label = UILabel()
         label.textColor = .label
         label.textAlignment = .left
-        label.font = .systemFont(ofSize: 18,weight: .semibold)
+        label.font = .systemFont(ofSize: 20,weight: .bold)
         label.text = "Bitcoin"
         return label
     }()
@@ -40,7 +43,7 @@ class CoinCell : UITableViewCell{
         let label = UILabel()
         label.textColor = .label
         label.textAlignment = .left
-        label.font = .systemFont(ofSize: 22,weight: .semibold)
+        label.font = .systemFont(ofSize: 18,weight: .medium)
         label.text = "89237"
         return label
     }()
@@ -48,18 +51,18 @@ class CoinCell : UITableViewCell{
         let label = UILabel()
         label.textColor = .label
         label.textAlignment = .left
-        label.font = .systemFont(ofSize: 22,weight: .semibold)
+        label.font = .systemFont(ofSize: 16,weight: .semibold)
         label.text = "-123123"
         return label
     }()
-    private lazy var nameStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews:[coinSymbol,coinName])
+    private lazy var leftStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews:[coinName,coinPrice])
         stackView.axis = .vertical
         stackView.spacing = 8
         return stackView
     }()
-    private lazy var priceStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews:[coinPrice,coinChange])
+    private lazy var rigthStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews:[coinSymbol,coinChange])
         stackView.axis = .vertical
         stackView.spacing = 8
         return stackView
@@ -78,19 +81,32 @@ class CoinCell : UITableViewCell{
         coinSymbol.text = model.symbol
         coinName.text = model.name
         coinPrice.text = model.price
-        coinChange.text = model.change
+        if let changeValue = Double(model.change), changeValue < 0 {
+                coinChange.textColor = .red
+            } else {
+                coinChange.textColor = .green
+            }
+            coinChange.text = model.change
+        
+        guard let iconURLString = model.iconUrl else { return }
+        var urlString = iconURLString
+        if iconURLString.lowercased().hasSuffix(".svg") {
+            urlString = iconURLString.replacingOccurrences(of: ".svg", with: ".png")
+            }
+        guard let url = URL(string: urlString) else { return }
+        coinLogo.sd_setImage(with: url, completed: nil)
     }
-
+    
     
     
     private func setupUI() {
         addSubview(coinLogo)
-        addSubview(nameStackView)
-        addSubview(priceStackView)
+        addSubview(leftStackView)
+        addSubview(rigthStackView)
         
         coinLogo.translatesAutoresizingMaskIntoConstraints = false
-        nameStackView.translatesAutoresizingMaskIntoConstraints = false
-        priceStackView.translatesAutoresizingMaskIntoConstraints = false
+        leftStackView.translatesAutoresizingMaskIntoConstraints = false
+        rigthStackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             // Coin Logo Constraints
@@ -100,13 +116,16 @@ class CoinCell : UITableViewCell{
             coinLogo.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.75),
             
             // Name StackView Constraints
-            nameStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            nameStackView.leadingAnchor.constraint(equalTo: coinLogo.trailingAnchor, constant: 16),
-            nameStackView.trailingAnchor.constraint(equalTo: priceStackView.leadingAnchor, constant: -16),
+            leftStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            leftStackView.leadingAnchor.constraint(equalTo: coinLogo.trailingAnchor, constant: 8),
+            leftStackView.trailingAnchor.constraint(equalTo: rigthStackView.leadingAnchor, constant: -16),
+            leftStackView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.50),
+            
+            
             // Price StackView Constraints
-            priceStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            priceStackView.widthAnchor.constraint(equalToConstant: 120)  
+            rigthStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            rigthStackView.widthAnchor.constraint(equalTo: widthAnchor,multiplier: 0.2)
         ])
     }
-
+    
 }

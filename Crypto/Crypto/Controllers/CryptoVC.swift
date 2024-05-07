@@ -17,6 +17,13 @@ class CryptoVC: UIViewController {
         return tableView
     }()
     
+    private lazy var searchBar: UISearchBar = {
+            let searchBar = UISearchBar()
+            searchBar.placeholder = "Search"
+            searchBar.delegate = self
+            return searchBar
+        }()
+    
     
     private let webservice = Webservice()
     
@@ -30,8 +37,8 @@ class CryptoVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
         title = "Cryptos"
+        setupUI()
         fetchCoins()
         
     }
@@ -45,19 +52,28 @@ class CryptoVC: UIViewController {
                 }
             }
         }
-    private func setupTableView(){
-        view.backgroundColor = .systemBlue
-        view.addSubview(tableView) 
-        
-        // Set tableView's constraints
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-    }
+    private func setupUI(){
+            view.backgroundColor = .systemBlue
+            view.addSubview(searchBar)
+            view.addSubview(tableView)
+            
+            // Set searchBar's constraints
+            searchBar.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            ])
+            
+            // Set tableView's constraints
+            tableView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
+                tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            ])
+        }
 }
 
 
@@ -93,4 +109,8 @@ extension CryptoVC: UITableViewDelegate {
 
         
     }
+}
+
+extension CryptoVC : UISearchBarDelegate {
+    
 }
