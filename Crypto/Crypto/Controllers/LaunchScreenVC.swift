@@ -20,13 +20,12 @@ final class LaunchScreenVC: UIViewController {
     }
 
     private func setAnimation() {
-        animationView = .init(name: "anmt")
-        animationView?.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
+        animationView = .init(name: "launch")
+        animationView?.frame = CGRect(x: 0, y: 0, width: 250, height: 250)
         animationView?.center = view.center
         animationView?.loopMode = .loop
         animationView?.play()
         view.addSubview(animationView!)
-        
     }
 }
 
