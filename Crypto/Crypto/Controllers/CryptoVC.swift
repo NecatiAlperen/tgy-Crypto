@@ -134,7 +134,9 @@ extension CryptoVC: UITableViewDataSource {
 extension CryptoVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Handle row selection if needed
+        let coin = coins[indexPath.row]
+        let vc = CryptoDetailVC(coin)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
