@@ -27,12 +27,14 @@ struct Coin: Codable {
     let change: String
     let rank: Int?
     let coinrankingURL: String?
+    let volume : String?
 
     enum CodingKeys: String, CodingKey {
         case uuid, symbol, name
         case iconUrl = "iconUrl"
         case marketCap, price, change, rank
         case coinrankingURL = "coinrankingUrl"
+        case volume = "24hVolume"
     }
 }
 

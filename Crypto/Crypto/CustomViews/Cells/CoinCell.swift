@@ -75,31 +75,30 @@ class CoinCell : UITableViewCell{
     required init?(coder: NSCoder) {
         fatalError("")
     }
-    
-    
-    public func configure(with model: Coin){
+
+    public func configure(with model: Coin) {
         coinSymbol.text = model.symbol
         coinName.text = model.name
         coinPrice.text = model.price
+        
         if let changeValue = Double(model.change), changeValue < 0 {
-                coinChange.textColor = .red
-            } else {
-                coinChange.textColor = .green
-            }
-            coinChange.text = model.change
+            coinChange.textColor = .red
+        } else {
+            coinChange.textColor = .green
+        }
+        coinChange.text = model.change
         
         guard let iconURLString = model.iconUrl else { return }
         var urlString = iconURLString
         if iconURLString.lowercased().hasSuffix(".svg") {
             urlString = iconURLString.replacingOccurrences(of: ".svg", with: ".png")
-            }
+        }
         guard let url = URL(string: urlString) else { return }
         coinLogo.sd_setImage(with: url, completed: nil)
     }
     
-    
-    
-    private func setupUI() {
+    private func setupUI(){
+        
         addSubview(coinLogo)
         addSubview(leftStackView)
         addSubview(rigthStackView)
@@ -122,10 +121,8 @@ class CoinCell : UITableViewCell{
             leftStackView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.50),
             
             
-            // Price StackView Constraints
             rigthStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
             rigthStackView.widthAnchor.constraint(equalTo: widthAnchor,multiplier: 0.2)
         ])
     }
-    
 }

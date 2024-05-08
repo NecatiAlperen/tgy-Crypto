@@ -54,7 +54,6 @@ extension OnBoardingViewController {
         view.addSubview(pageViewController.view)
         pageViewController.didMove(toParent: self)
         
-        // Sayfa kontrolcüsü
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         pageControl.currentPageIndicatorTintColor = .black
         pageControl.pageIndicatorTintColor = .systemGray2
@@ -62,7 +61,6 @@ extension OnBoardingViewController {
         pageControl.currentPage = initialPage
         view.addSubview(pageControl)
         
-        // Skip butonu
         skipButton.translatesAutoresizingMaskIntoConstraints = false
         skipButton.setTitle("Tanıtımı Atla", for: .normal)
         skipButton.setTitleColor(.systemBlue, for: .normal)

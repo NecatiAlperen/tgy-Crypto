@@ -41,8 +41,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     window?.makeKeyAndVisible()
         
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                        let cryptoVC = CryptoVC()
-                        self.window?.rootViewController = UINavigationController(rootViewController: cryptoVC)
+                        let tabbar = TabbarController()
+                        self.window?.rootViewController = UINavigationController(rootViewController: tabbar)
                     }
                 }
         

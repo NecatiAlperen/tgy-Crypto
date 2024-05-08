@@ -19,8 +19,8 @@ final class LaunchScreenVC: UIViewController {
         setAnimation()
     }
 
-    private func setAnimation() {
-        animationView = .init(name: "launch")
+    private func setAnimation(){
+        animationView = .init(name: "kpssSplash")
         animationView?.frame = CGRect(x: 0, y: 0, width: 250, height: 250)
         animationView?.center = view.center
         animationView?.loopMode = .loop

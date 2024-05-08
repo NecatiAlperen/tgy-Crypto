@@ -35,8 +35,9 @@ class CryptoVC: UIViewController {
     }
     private var filteredCoins: [Coin] = [] {
         didSet {
-            tableView.reloadData()
             updateNoResultViewVisibility()
+            tableView.reloadData()
+            
         }
     }
     private var isFiltering: Bool {
@@ -49,7 +50,6 @@ class CryptoVC: UIViewController {
         title = "Cryptos"
         setupUI()
         fetchCoins()
-        updateNoResultViewVisibility()
     }
     
     private func fetchCoins() {
@@ -115,7 +115,6 @@ extension CryptoVC: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CoinCell.identifier, for: indexPath) as? CoinCell else {
             fatalError()
         }
-        
         let coin = isFiltering ? filteredCoins[indexPath.row] : coins[indexPath.row]
         cell.configure(with: coin)
         return cell
@@ -147,4 +146,5 @@ extension CryptoVC: UISearchBarDelegate {
         filteredCoins = coins.filter { $0.name!.lowercased().contains(searchText.lowercased()) }
         tableView.reloadData()
     }
+    
 }

@@ -21,8 +21,9 @@ class CryptoDetailVC: UIViewController {
     
     private lazy var coinSymbol : UILabel = {
         let label = UILabel()
-        label.text = "btc"
+        label.text = "BTC"
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 18,weight: .semibold)
         return label
     }()
     
@@ -30,24 +31,28 @@ class CryptoDetailVC: UIViewController {
         let label = UILabel()
         label.text = "1$"
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 18,weight: .semibold)
         return label
     }()
     private lazy var coinChange : UILabel = {
         let label = UILabel()
         label.text = "-3.61"
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 18,weight: .semibold)
         return label
     }()
     private lazy var coinVolume : UILabel = {
         let label = UILabel()
         label.text = "123.123"
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 18,weight: .semibold)
         return label
     }()
     private lazy var coinMarketCap : UILabel = {
         let label = UILabel()
         label.text = "123123"
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 18,weight: .semibold)
         return label
     }()
     
@@ -63,10 +68,31 @@ class CryptoDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setData()
         self.navigationItem.title = self.coin.name
+        view.backgroundColor = .white
     }
     
-    private func setupUI(){
+    
+    
+    
+    private func setData() {
+        guard let iconURLString = coin.iconUrl else { return }
+        var urlString = iconURLString
+        if iconURLString.lowercased().hasSuffix(".svg") {
+            urlString = iconURLString.replacingOccurrences(of: ".svg", with: ".png")
+        }
+        guard let url = URL(string: urlString) else { return }
+        coinLogo.sd_setImage(with: url, completed: nil)
+        
+        // Diğer verilerin de ayarlanması
+        coinSymbol.text = coin.symbol
+        coinPrice.text = coin.price
+        coinChange.text = coin.change
+        coinVolume.text = coin.volume
+        coinMarketCap.text = coin.marketCap
+    }
+    private func setupUI() {
         
         view.addSubview(coinLogo)
         view.addSubview(coinSymbol)
@@ -75,28 +101,37 @@ class CryptoDetailVC: UIViewController {
         view.addSubview(coinVolume)
         view.addSubview(coinMarketCap)
         
-        NSLayoutConstraint.activate([
         
-//            coinLogo.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
-//            coinLogo.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3),
-//            coinLogo.topAnchor.constraint(equalTo: view.topAnchor),
-//            coinLogo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            
-//            coinSymbol.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.3),
-//            coinSymbol.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.05),
-//            coinSymbol.topAnchor.constraint(equalTo: coinLogo.bottomAnchor, constant: 20),
-//            coinSymbol.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-//            
-//            
-//            coinPrice.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.3),
-//            coinPrice.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.05),
-//            coinPrice.topAnchor.constraint(equalTo: coinSymbol.bottomAnchor, constant: 20),
-//            coinPrice.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+        NSLayoutConstraint.activate([
+            
+            
+            
+            coinLogo.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            coinLogo.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            coinLogo.widthAnchor.constraint(equalToConstant: 100),
+            coinLogo.heightAnchor.constraint(equalToConstant: 100),
+            
+            coinSymbol.centerXAnchor.constraint(equalTo: coinLogo.centerXAnchor),
+            coinSymbol.topAnchor.constraint(equalTo: coinLogo.bottomAnchor, constant: 10),
+    
+            coinPrice.centerYAnchor.constraint(equalTo: coinLogo.centerYAnchor),
+            coinPrice.leadingAnchor.constraint(equalTo: coinLogo.trailingAnchor, constant: 10),
+            
+            coinChange.topAnchor.constraint(equalTo: coinSymbol.bottomAnchor, constant: 10),
+            coinChange.leadingAnchor.constraint(equalTo: coinSymbol.leadingAnchor),
+            
+            coinVolume.topAnchor.constraint(equalTo: coinChange.bottomAnchor, constant: 10),
+            coinVolume.leadingAnchor.constraint(equalTo: coinChange.leadingAnchor),
+            
+            coinMarketCap.topAnchor.constraint(equalTo: coinVolume.bottomAnchor, constant: 10),
+            coinMarketCap.leadingAnchor.constraint(equalTo: coinVolume.leadingAnchor)
             
         ])
-        
     }
 
-    
 
+
+    
+    
+    
 }
