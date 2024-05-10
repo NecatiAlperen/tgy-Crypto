@@ -6,14 +6,15 @@
 //
 
 import UIKit
-import CoreData
 
-class CryptoDetailVC: UIViewController {
+final class CryptoDetailVC: UIViewController {
+    
+    
+    //MARK: -- VARIABLES
     
     private let coin:Coin
+    private var isFavorite: Bool = false
     
-    
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private lazy var coinLogo : UIImageView = {
         let imageView = UIImageView()
         view.contentMode = .scaleAspectFit
@@ -35,6 +36,9 @@ class CryptoDetailVC: UIViewController {
         label.text = "1$"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 18,weight: .semibold)
+        label.layer.borderWidth = 1
+        label.layer.borderColor = UIColor.lightGray.cgColor
+        label.layer.cornerRadius = 16
         return label
     }()
     private lazy var coinChange : UILabel = {
@@ -42,6 +46,9 @@ class CryptoDetailVC: UIViewController {
         label.text = "-3.61"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 18,weight: .semibold)
+        label.layer.borderWidth = 1
+        label.layer.borderColor = UIColor.lightGray.cgColor
+        label.layer.cornerRadius = 16
         return label
     }()
     private lazy var coinVolume : UILabel = {
@@ -49,6 +56,9 @@ class CryptoDetailVC: UIViewController {
         label.text = "123.123"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 18,weight: .semibold)
+        label.layer.borderWidth = 1
+        label.layer.borderColor = UIColor.lightGray.cgColor
+        label.layer.cornerRadius = 16
         return label
     }()
     private lazy var coinMarketCap : UILabel = {
@@ -56,12 +66,26 @@ class CryptoDetailVC: UIViewController {
         label.text = "123123"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 18,weight: .semibold)
+        label.layer.borderWidth = 1
+        label.layer.borderColor = UIColor.lightGray.cgColor
+        label.layer.cornerRadius = 16
         return label
     }()
+    private lazy var heartButton: UIBarButtonItem = {
+        let heartImage = UIImage(systemName: "heart.fill")
+        let button = UIBarButtonItem(image: heartImage, style: .plain, target: self, action: #selector(saveClicked))
+        return button
+    }()
+    
+    //MARK: -- LIFECYCLE
     
     init(_ coin: Coin){
         self.coin = coin
         super.init(nibName: nil, bundle: nil)
+        if let favoriteList = UserDefaults.standard.array(forKey : "favoriteList") as? [String] {
+            isFavorite = favoriteList.contains(coin.uuid ?? "" )
+        }
+        updateHeartButtonAppearance()
     }
     
     required init?(coder: NSCoder) {
@@ -74,38 +98,35 @@ class CryptoDetailVC: UIViewController {
         setData()
         self.navigationItem.title = self.coin.name
         view.backgroundColor = .white
-        let heartImage = UIImage(systemName: "heart.fill")
-        let heartButton = UIBarButtonItem(image: heartImage, style: .plain, target: self, action: #selector(saveClicked))
         navigationItem.rightBarButtonItem = heartButton
     }
     
+    //MARK: -- FUNCTIONS
     
-    @objc private func saveClicked(){
-        print("save clicked")
+    @objc private func saveClicked() {
         
-        guard let coinUUIDString = coin.uuid, let coinUUID = UUID(uuidString: coinUUIDString) else {
-            print("coin UUID: \(coin.uuid ?? "nil")")
-            return
+        var favoriteList = UserDefaults.standard.array(forKey: "favoriteList") as? [String]
+        
+        if isFavorite {
+            favoriteList?.removeAll(where: { coinId in
+                coinId == coin.uuid
+            })
+        }else{
+            favoriteList?.append(coin.uuid ?? "")
+            print(favoriteList?.first)
         }
-        
-        let context = appDelegate.persistentContainer.viewContext
-        
-        guard let entity = NSEntityDescription.entity(forEntityName: "FavoriteCoin", in: context) else {
-            fatalError("Entity bulunamadı")
-        }
-        
-        let favoriteCoin = NSManagedObject(entity: entity, insertInto: context)
-        favoriteCoin.setValue(coinUUID, forKey: "uuid")
-        
-        do {
-            try context.save()
-        } catch {
-            print("Error saving favorite coin: \(error)")
+        isFavorite.toggle()
+        UserDefaults.standard.set(favoriteList, forKey: "favoriteList")
+        updateHeartButtonAppearance()
+    }
+    
+    private func updateHeartButtonAppearance() {
+        if isFavorite {
+            heartButton.tintColor = .red
+        } else {
+            heartButton.tintColor = .blue
         }
     }
-
-
-
     
     private func setData() {
         guard let iconURLString = coin.iconUrl else { return }
@@ -130,37 +151,37 @@ class CryptoDetailVC: UIViewController {
         view.addSubview(coinVolume)
         view.addSubview(coinMarketCap)
         
-        
         NSLayoutConstraint.activate([
-            
-            
             
             coinLogo.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             coinLogo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            coinLogo.widthAnchor.constraint(equalToConstant: 100),
-            coinLogo.heightAnchor.constraint(equalToConstant: 100),
+            coinLogo.widthAnchor.constraint(equalToConstant: screenWidth * 0.5),
+            coinLogo.heightAnchor.constraint(equalToConstant: screenHeigth * 0.2),
             
             coinSymbol.centerXAnchor.constraint(equalTo: coinLogo.centerXAnchor),
             coinSymbol.topAnchor.constraint(equalTo: coinLogo.bottomAnchor, constant: 10),
             
+            
             coinPrice.topAnchor.constraint(equalTo: coinSymbol.bottomAnchor,constant: 10),
-            coinPrice.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            coinPrice.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            coinPrice.heightAnchor.constraint(equalToConstant: screenHeigth * 0.05),
+            coinPrice.widthAnchor.constraint(equalToConstant: screenWidth * 0.9),
             
             coinChange.topAnchor.constraint(equalTo: coinPrice.bottomAnchor, constant: 10),
-            coinChange.leadingAnchor.constraint(equalTo: coinPrice.leadingAnchor),
+            coinChange.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            coinChange.heightAnchor.constraint(equalToConstant: screenHeigth * 0.05),
+            coinChange.widthAnchor.constraint(equalToConstant: screenWidth * 0.9),
             
             coinVolume.topAnchor.constraint(equalTo: coinChange.bottomAnchor, constant: 10),
-            coinVolume.leadingAnchor.constraint(equalTo: coinChange.leadingAnchor),
+            coinVolume.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            coinVolume.heightAnchor.constraint(equalToConstant: screenHeigth * 0.05),
+            coinVolume.widthAnchor.constraint(equalToConstant: screenWidth * 0.9),
             
             coinMarketCap.topAnchor.constraint(equalTo: coinVolume.bottomAnchor, constant: 10),
-            coinMarketCap.leadingAnchor.constraint(equalTo: coinVolume.leadingAnchor)
+            coinMarketCap.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            coinMarketCap.heightAnchor.constraint(equalToConstant: screenHeigth * 0.05),
+            coinMarketCap.widthAnchor.constraint(equalToConstant: screenWidth * 0.9),
             
         ])
     }
-    
-    
-    
-    
-    
-    
 }

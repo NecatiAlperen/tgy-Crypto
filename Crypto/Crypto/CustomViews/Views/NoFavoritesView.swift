@@ -1,18 +1,18 @@
 //
-//  NoResultView.swift
+//  NoFavoritesView.swift
 //  Crypto
 //
-//  Created by Necati Alperen IŞIK on 7.05.2024.
+//  Created by Necati Alperen IŞIK on 10.05.2024.
 //
 
 import UIKit
 
-final class NoResultView: UIView {
+final class NoFavoritesView: UIView {
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
-        imageView.image = .noresult
+        imageView.image = .nofavorite
         return imageView
     }()
     
@@ -21,7 +21,7 @@ final class NoResultView: UIView {
         label.textAlignment = .center
         label.textColor = .gray
         label.font = UIFont.systemFont(ofSize: 16)
-        label.text = "No results found"
+        label.text = "Can not find any favorite coin"
         return label
     }()
     
@@ -53,4 +53,3 @@ final class NoResultView: UIView {
         ])
     }
 }
-

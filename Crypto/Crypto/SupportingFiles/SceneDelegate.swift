@@ -10,43 +10,43 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
-    
-    
+
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-//        window?.rootViewController = OnBoardingViewController()
-//        window?.makeKeyAndVisible()
         
-                let isFirstTimeLaunch = !UserDefaults.standard.bool(forKey: "isFirstTimeLaunch")
-                var rootViewController: UIViewController
+        var favoriteList = UserDefaults.standard.array(forKey: "favoriteList") as? [String]
+        if  favoriteList == nil {
+            UserDefaults.standard.set([String](), forKey: "favoriteList")
+        }
         
-                if isFirstTimeLaunch {
-                    UserDefaults.standard.set(true, forKey: "isFirstTimeLaunch")
-                    let launchScreenVC = LaunchScreenVC()
-                    rootViewController = UINavigationController(rootViewController: launchScreenVC)
-                    window?.rootViewController = rootViewController
-                    window?.makeKeyAndVisible()
+        let isFirstTimeLaunch = !UserDefaults.standard.bool(forKey: "isFirstTimeLaunch")
+        var rootViewController: UIViewController
         
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                        let onboardingViewController = OnBoardingViewController()
-                        self.window?.rootViewController = UINavigationController(rootViewController: onboardingViewController)
-                    }
-                } else {
-                    let launchScreenVC = LaunchScreenVC()
-                    rootViewController = UINavigationController(rootViewController: launchScreenVC)
-                    window?.rootViewController = rootViewController
-                    window?.makeKeyAndVisible()
-        
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                        let tabbar = TabbarController()
-                        self.window?.rootViewController = tabbar
-                    }
-                }
-        
-        
+        if isFirstTimeLaunch {
+            UserDefaults.standard.set(true, forKey: "isFirstTimeLaunch")
+            let launchScreenVC = LaunchScreenVC()
+            rootViewController = UINavigationController(rootViewController: launchScreenVC)
+            window?.rootViewController = rootViewController
+            window?.makeKeyAndVisible()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                let onboardingViewController = OnBoardingViewController()
+                self.window?.rootViewController = UINavigationController(rootViewController: onboardingViewController)
+            }
+        } else {
+            let launchScreenVC = LaunchScreenVC()
+            rootViewController = UINavigationController(rootViewController: launchScreenVC)
+            window?.rootViewController = rootViewController
+            window?.makeKeyAndVisible()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                let tabbar = TabbarController()
+                self.window?.rootViewController = tabbar
+            }
+        }
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -75,7 +75,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
-        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
     
     

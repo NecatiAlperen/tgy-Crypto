@@ -11,6 +11,7 @@ import UIKit
 
 class CryptoVC: UIViewController {
     
+    //MARK: -- VARIABLES
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(CoinCell.self, forCellReuseIdentifier: CoinCell.identifier)
@@ -37,7 +38,6 @@ class CryptoVC: UIViewController {
         didSet {
             updateNoResultViewVisibility()
             tableView.reloadData()
-            
         }
     }
     private var isFiltering: Bool {
@@ -45,12 +45,15 @@ class CryptoVC: UIViewController {
     }
     private let noResultView = NoResultView()
     
+    //MARK: -- LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Cryptos"
         setupUI()
         fetchCoins()
     }
+    
+    //MARK: -- FUNCTIONS
     
     private func fetchCoins() {
         webservice.fetchCoins { result in
@@ -69,7 +72,6 @@ class CryptoVC: UIViewController {
         view.addSubview(tableView)
         view.addSubview(noResultView)
         
-        // Set searchBar's constraints
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -77,7 +79,6 @@ class CryptoVC: UIViewController {
             searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         
-        // Set tableView's constraints
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
@@ -86,7 +87,6 @@ class CryptoVC: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        // Set noResultView's constraints
         noResultView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             noResultView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
@@ -95,7 +95,6 @@ class CryptoVC: UIViewController {
             noResultView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        // Hide noResultView initially
         noResultView.isHidden = true
     }
     
@@ -104,7 +103,7 @@ class CryptoVC: UIViewController {
     }
 }
 
-// MARK: - UITableViewDataSource
+// MARK: - EXTENSIONS
 extension CryptoVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -129,17 +128,15 @@ extension CryptoVC: UITableViewDataSource {
     }
 }
 
-// MARK: - UITableViewDelegate
 extension CryptoVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let coin = coins[indexPath.row]
+        let coin = isFiltering ? filteredCoins[indexPath.row] : coins[indexPath.row]
         let vc = CryptoDetailVC(coin)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
-// MARK: - UISearchBarDelegate
 extension CryptoVC: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

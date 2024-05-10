@@ -7,7 +7,9 @@
 
 import UIKit
 
-class OnBoardingViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+final class OnBoardingViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+    
+    //MARK: -- VARIABLES
     
     let stackView = UIStackView()
     let imageView = UIImageView()
@@ -15,9 +17,10 @@ class OnBoardingViewController: UIViewController, UIPageViewControllerDataSource
     let subtitleLabel = UILabel()
     let pageControl = UIPageControl()
     let skipButton = UIButton()
-
     var pages = [UIViewController]()
     let initialPage = 0
+    
+    //MARK: -- LIFECYCLES
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -35,11 +38,10 @@ class OnBoardingViewController: UIViewController, UIPageViewControllerDataSource
         view.backgroundColor = .white
     }
 }
-
+//MARK: -- EXTENSIONS
 extension OnBoardingViewController {
     
     func setup() {
-        // Onboarding sayfaları
         let page1 = createPage(imageName: "1", titleText: "Welcome To Cryptos", subtitleText: "You can easily track your cryptos")
         let page2 = createPage(imageName: "2", titleText: "Make your own list", subtitleText: "kendi favoriler listeni oluşturalabilir...")
         let page3 = createPage(imageName: "3", titleText: "Search what do you want", subtitleText: "ulaşmak istediğin coin için kolay arama yapabilirsin")
@@ -143,7 +145,7 @@ extension OnBoardingViewController {
     }
 }
 
-// MARK: - UIPageViewControllerDataSource
+
 
 extension OnBoardingViewController {
     
@@ -158,7 +160,7 @@ extension OnBoardingViewController {
     }
 }
 
-// MARK: - UIPageViewControllerDelegate
+
 
 extension OnBoardingViewController {
     

@@ -10,7 +10,7 @@ import SDWebImage
 
 
 
-class CoinCell : UITableViewCell{
+final class CoinCell : UITableViewCell{
     
     
     static let identifier = "CoinCell"

@@ -9,7 +9,6 @@ import UIKit
 
 final class TabbarController: UITabBarController {
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.backgroundColor = .systemGray3
@@ -21,11 +20,10 @@ final class TabbarController: UITabBarController {
         let vcSecond = UINavigationController(rootViewController:FavoritesVC())
         vcFirst.tabBarItem.image = UIImage(systemName: "bitcoinsign.circle")
         vcSecond.tabBarItem.image = UIImage(systemName: "heart")
-        vcFirst.tabBarItem.title = "Coins"
+        vcFirst.tabBarItem.title = "Cryptos"
         vcSecond.tabBarItem.title = "Favorites"
         tabBar.tintColor = .label
         setViewControllers([vcFirst,vcSecond], animated: true)
     }
-
 }
 

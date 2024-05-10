@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B491D252BE6FA6B004998D8 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 3B491D242BE6FA6B004998D8 /* Lottie */; };
 		3B4C68372BE8E2AF006C9FCD /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C68362BE8E2AF006C9FCD /* Webservice.swift */; };
 		3B4C683D2BE8EB1E006C9FCD /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3B4C683C2BE8EB1E006C9FCD /* SDWebImage */; };
 		3B4C683F2BE8EB1E006C9FCD /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3B4C683E2BE8EB1E006C9FCD /* SDWebImageMapKit */; };
@@ -23,9 +22,10 @@
 		3BD368BF2BE6ED0100A79019 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD368BE2BE6ED0100A79019 /* SceneDelegate.swift */; };
 		3BD368C12BE6ED0100A79019 /* LaunchScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD368C02BE6ED0100A79019 /* LaunchScreenVC.swift */; };
 		3BD368C62BE6ED0200A79019 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BD368C52BE6ED0200A79019 /* Assets.xcassets */; };
+		3BD36A4F2BEE584C00E1F0A6 /* CGFloat + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD36A4E2BEE584C00E1F0A6 /* CGFloat + Extensions.swift */; };
+		3BD36A512BEE598800E1F0A6 /* NoFavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD36A502BEE598800E1F0A6 /* NoFavoritesView.swift */; };
 		3BD7698D2BEBE8E6000AA09C /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD7698C2BEBE8E6000AA09C /* TabbarController.swift */; };
 		3BD7698F2BEBE96A000AA09C /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD7698E2BEBE96A000AA09C /* FavoritesVC.swift */; };
-		3BD769922BEBEEBE000AA09C /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3BD769902BEBEEBE000AA09C /* Data.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,9 +42,10 @@
 		3BD368C02BE6ED0100A79019 /* LaunchScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenVC.swift; sourceTree = "<group>"; };
 		3BD368C52BE6ED0200A79019 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3BD368CA2BE6ED0200A79019 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BD36A4E2BEE584C00E1F0A6 /* CGFloat + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat + Extensions.swift"; sourceTree = "<group>"; };
+		3BD36A502BEE598800E1F0A6 /* NoFavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoFavoritesView.swift; sourceTree = "<group>"; };
 		3BD7698C2BEBE8E6000AA09C /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		3BD7698E2BEBE96A000AA09C /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
-		3BD769912BEBEEBE000AA09C /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +53,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B491D252BE6FA6B004998D8 /* Lottie in Frameworks */,
 				3B4C683F2BE8EB1E006C9FCD /* SDWebImageMapKit in Frameworks */,
 				3BC105B52BE83FD700058C25 /* AlamofireDynamic in Frameworks */,
 				3B4C683D2BE8EB1E006C9FCD /* SDWebImage in Frameworks */,
@@ -82,7 +82,6 @@
 				3BD368BE2BE6ED0100A79019 /* SceneDelegate.swift */,
 				3BD368CA2BE6ED0200A79019 /* Info.plist */,
 				3BD368C52BE6ED0200A79019 /* Assets.xcassets */,
-				3BD769902BEBEEBE000AA09C /* Data.xcdatamodeld */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -124,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				3B6CA1462BEA5EC0007FDE1F /* NoResultView.swift */,
+				3BD36A502BEE598800E1F0A6 /* NoFavoritesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -147,6 +147,7 @@
 		3BD368BB2BE6ED0100A79019 /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
+				3BD36A4D2BEE583900E1F0A6 /* Extensions */,
 				3B6CA1442BEA5E82007FDE1F /* CustomViews */,
 				3B4BADA02BE93CC200F1AE9E /* SupportingFiles */,
 				3B4BAD9F2BE93C6800F1AE9E /* Controllers */,
@@ -155,6 +156,14 @@
 				3BD7698C2BEBE8E6000AA09C /* TabbarController.swift */,
 			);
 			path = Crypto;
+			sourceTree = "<group>";
+		};
+		3BD36A4D2BEE583900E1F0A6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3BD36A4E2BEE584C00E1F0A6 /* CGFloat + Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,7 +183,6 @@
 			);
 			name = Crypto;
 			packageProductDependencies = (
-				3B491D242BE6FA6B004998D8 /* Lottie */,
 				3BC105B22BE83FD700058C25 /* Alamofire */,
 				3BC105B42BE83FD700058C25 /* AlamofireDynamic */,
 				3B4C683C2BE8EB1E006C9FCD /* SDWebImage */,
@@ -209,7 +217,6 @@
 			);
 			mainGroup = 3BD368B02BE6ED0100A79019;
 			packageReferences = (
-				3B491D232BE6FA6B004998D8 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				3BC105B12BE83FD700058C25 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				3B4C683B2BE8EB1E006C9FCD /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
@@ -241,14 +248,15 @@
 				3BD368C12BE6ED0100A79019 /* LaunchScreenVC.swift in Sources */,
 				3BC105A82BE7FC8500058C25 /* OnboardingVC.swift in Sources */,
 				3B4C68442BE9017E006C9FCD /* CryptoDetailVC.swift in Sources */,
+				3BD36A512BEE598800E1F0A6 /* NoFavoritesView.swift in Sources */,
 				3BC105AE2BE8037600058C25 /* CoinCell.swift in Sources */,
 				3B6CA1472BEA5EC0007FDE1F /* NoResultView.swift in Sources */,
 				3B4C68372BE8E2AF006C9FCD /* Webservice.swift in Sources */,
 				3BD368BD2BE6ED0100A79019 /* AppDelegate.swift in Sources */,
 				3BD7698D2BEBE8E6000AA09C /* TabbarController.swift in Sources */,
 				3BD7698F2BEBE96A000AA09C /* FavoritesVC.swift in Sources */,
+				3BD36A4F2BEE584C00E1F0A6 /* CGFloat + Extensions.swift in Sources */,
 				3BD368BF2BE6ED0100A79019 /* SceneDelegate.swift in Sources */,
-				3BD769922BEBEEBE000AA09C /* Data.xcdatamodeld in Sources */,
 				3BC105AC2BE8005500058C25 /* CryptoVC.swift in Sources */,
 				3BC105B02BE83E2B00058C25 /* Coin.swift in Sources */,
 			);
@@ -454,14 +462,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		3B491D232BE6FA6B004998D8 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.4.3;
-			};
-		};
 		3B4C683B2BE8EB1E006C9FCD /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
@@ -481,11 +481,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3B491D242BE6FA6B004998D8 /* Lottie */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3B491D232BE6FA6B004998D8 /* XCRemoteSwiftPackageReference "lottie-ios" */;
-			productName = Lottie;
-		};
 		3B4C683C2BE8EB1E006C9FCD /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3B4C683B2BE8EB1E006C9FCD /* XCRemoteSwiftPackageReference "SDWebImage" */;
@@ -507,19 +502,6 @@
 			productName = AlamofireDynamic;
 		};
 /* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		3BD769902BEBEEBE000AA09C /* Data.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				3BD769912BEBEEBE000AA09C /* Data.xcdatamodel */,
-			);
-			currentVersion = 3BD769912BEBEEBE000AA09C /* Data.xcdatamodel */;
-			path = Data.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 3BD368B12BE6ED0100A79019 /* Project object */;
 }
