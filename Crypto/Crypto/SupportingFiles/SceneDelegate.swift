@@ -42,7 +42,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                         let tabbar = TabbarController()
-                        self.window?.rootViewController = UINavigationController(rootViewController: tabbar)
+                        self.window?.rootViewController = tabbar
                     }
                 }
         
@@ -75,6 +75,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
     
     

@@ -79,19 +79,19 @@ class CoinCell : UITableViewCell{
     public func configure(with model: Coin) {
         coinSymbol.text = model.symbol
         coinName.text = model.name
-        coinPrice.text = model.price
+        coinPrice.text = "\(model.price)$ "
         
         if let changeValue = Double(model.change), changeValue < 0 {
             coinChange.textColor = .red
         } else {
             coinChange.textColor = .green
         }
-        coinChange.text = model.change
+        coinChange.text = "\(model.change)% "
         
         guard let iconURLString = model.iconUrl else { return }
         var urlString = iconURLString
-        if iconURLString.lowercased().hasSuffix(".svg") {
-            urlString = iconURLString.replacingOccurrences(of: ".svg", with: ".png")
+        if iconURLString.lowercased().hasSuffix("svg") {
+            urlString = iconURLString.replacingOccurrences(of: "svg", with: "png")
         }
         guard let url = URL(string: urlString) else { return }
         coinLogo.sd_setImage(with: url, completed: nil)

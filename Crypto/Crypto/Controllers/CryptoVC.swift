@@ -143,7 +143,7 @@ extension CryptoVC: UITableViewDelegate {
 extension CryptoVC: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredCoins = coins.filter { $0.name!.lowercased().contains(searchText.lowercased()) }
+        filteredCoins = coins.filter { $0.name.lowercased().contains(searchText.lowercased()) }
         tableView.reloadData()
     }
     

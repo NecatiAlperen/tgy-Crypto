@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import CoreData
 
 class CryptoDetailVC: UIViewController {
     
     private let coin:Coin
     
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private lazy var coinLogo : UIImageView = {
         let imageView = UIImageView()
         view.contentMode = .scaleAspectFit
@@ -71,10 +74,38 @@ class CryptoDetailVC: UIViewController {
         setData()
         self.navigationItem.title = self.coin.name
         view.backgroundColor = .white
+        let heartImage = UIImage(systemName: "heart.fill")
+        let heartButton = UIBarButtonItem(image: heartImage, style: .plain, target: self, action: #selector(saveClicked))
+        navigationItem.rightBarButtonItem = heartButton
     }
     
     
-    
+    @objc private func saveClicked(){
+        print("save clicked")
+        
+        guard let coinUUIDString = coin.uuid, let coinUUID = UUID(uuidString: coinUUIDString) else {
+            print("coin UUID: \(coin.uuid ?? "nil")")
+            return
+        }
+        
+        let context = appDelegate.persistentContainer.viewContext
+        
+        guard let entity = NSEntityDescription.entity(forEntityName: "FavoriteCoin", in: context) else {
+            fatalError("Entity bulunamadı")
+        }
+        
+        let favoriteCoin = NSManagedObject(entity: entity, insertInto: context)
+        favoriteCoin.setValue(coinUUID, forKey: "uuid")
+        
+        do {
+            try context.save()
+        } catch {
+            print("Error saving favorite coin: \(error)")
+        }
+    }
+
+
+
     
     private func setData() {
         guard let iconURLString = coin.iconUrl else { return }
@@ -84,13 +115,11 @@ class CryptoDetailVC: UIViewController {
         }
         guard let url = URL(string: urlString) else { return }
         coinLogo.sd_setImage(with: url, completed: nil)
-        
-        // Diğer verilerin de ayarlanması
         coinSymbol.text = coin.symbol
-        coinPrice.text = coin.price
-        coinChange.text = coin.change
-        coinVolume.text = coin.volume
-        coinMarketCap.text = coin.marketCap
+        coinPrice.text = "Coin Price: \(coin.price)$ "
+        coinChange.text = "Coin Change: \(coin.change)% "
+        coinVolume.text = "Coin Volume: \(coin.volume) "
+        coinMarketCap.text = "Coin Market Cap: \(coin.marketCap) "
     }
     private func setupUI() {
         
@@ -107,18 +136,18 @@ class CryptoDetailVC: UIViewController {
             
             
             coinLogo.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            coinLogo.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            coinLogo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             coinLogo.widthAnchor.constraint(equalToConstant: 100),
             coinLogo.heightAnchor.constraint(equalToConstant: 100),
             
             coinSymbol.centerXAnchor.constraint(equalTo: coinLogo.centerXAnchor),
             coinSymbol.topAnchor.constraint(equalTo: coinLogo.bottomAnchor, constant: 10),
-    
-            coinPrice.centerYAnchor.constraint(equalTo: coinLogo.centerYAnchor),
-            coinPrice.leadingAnchor.constraint(equalTo: coinLogo.trailingAnchor, constant: 10),
             
-            coinChange.topAnchor.constraint(equalTo: coinSymbol.bottomAnchor, constant: 10),
-            coinChange.leadingAnchor.constraint(equalTo: coinSymbol.leadingAnchor),
+            coinPrice.topAnchor.constraint(equalTo: coinSymbol.bottomAnchor,constant: 10),
+            coinPrice.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            
+            coinChange.topAnchor.constraint(equalTo: coinPrice.bottomAnchor, constant: 10),
+            coinChange.leadingAnchor.constraint(equalTo: coinPrice.leadingAnchor),
             
             coinVolume.topAnchor.constraint(equalTo: coinChange.bottomAnchor, constant: 10),
             coinVolume.leadingAnchor.constraint(equalTo: coinChange.leadingAnchor),
@@ -128,9 +157,9 @@ class CryptoDetailVC: UIViewController {
             
         ])
     }
-
-
-
+    
+    
+    
     
     
     

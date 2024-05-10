@@ -15,7 +15,7 @@ class OnBoardingViewController: UIViewController, UIPageViewControllerDataSource
     let subtitleLabel = UILabel()
     let pageControl = UIPageControl()
     let skipButton = UIButton()
-    
+
     var pages = [UIViewController]()
     let initialPage = 0
     
@@ -40,9 +40,9 @@ extension OnBoardingViewController {
     
     func setup() {
         // Onboarding sayfaları
-        let page1 = createPage(imageName: "1", titleText: "Hoş geldin", subtitleText: "Otobüs biletine mi ihtiyacın var?")
-        let page2 = createPage(imageName: "1", titleText: "Ticked'la", subtitleText: "Güvenli ödeme rahatlığıyla")
-        let page3 = createPage(imageName: "1", titleText: "Tek Tık'la", subtitleText: "Biletini kolayca alabilirsin")
+        let page1 = createPage(imageName: "1", titleText: "Welcome To Cryptos", subtitleText: "You can easily track your cryptos")
+        let page2 = createPage(imageName: "2", titleText: "Make your own list", subtitleText: "kendi favoriler listeni oluşturalabilir...")
+        let page3 = createPage(imageName: "3", titleText: "Search what do you want", subtitleText: "ulaşmak istediğin coin için kolay arama yapabilirsin")
         
         pages = [page1, page2, page3]
         
@@ -137,7 +137,7 @@ extension OnBoardingViewController {
     }
     
     @objc func skipTapped(_ sender: UIButton) {
-        let tabbar = CryptoVC()
+        let tabbar = TabbarController()
         tabbar.modalPresentationStyle = .fullScreen
         present(tabbar, animated: true, completion: nil)
     }
