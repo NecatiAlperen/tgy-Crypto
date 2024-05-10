@@ -1,45 +1,47 @@
-usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]
-           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
-           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
-           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
-           [--super-prefix=<path>] [--config-env=<name>=<envvar>]
-           <command> [<args>]
+<div align="center">
+  <h1>TGY Project2 - CRYPTOS-</h1>
+</div>
 
-These are common Git commands used in various situations:
 
-start a working area (see also: git help tutorial)
-   clone     Clone a repository into a new directory
-   init      Create an empty Git repository or reinitialize an existing one
+## Table of Contents
+- [Features](#features)
+  - [Screenshots](#screenshots)
+  - [Tech Stack](#tech-stack)
+  - [Packages]()
+- [Usage](#usage)
+  - [Listing - Browse Coins](#listing---browse-coins)
+  - [Coin Detail](#coin-details)
+  - [Favorites](#favorite)
 
-work on the current change (see also: git help everyday)
-   add       Add file contents to the index
-   mv        Move or rename a file, a directory, or a symlink
-   restore   Restore working tree files
-   rm        Remove files from the working tree and from the index
 
-examine the history and state (see also: git help revisions)
-   bisect    Use binary search to find the commit that introduced a bug
-   diff      Show changes between commits, commit and working tree, etc
-   grep      Print lines matching a pattern
-   log       Show commit logs
-   show      Show various types of objects
-   status    Show the working tree status
+## Features
 
-grow, mark and tweak your common history
-   branch    List, create, or delete branches
-   commit    Record changes to the repository
-   merge     Join two or more development histories together
-   rebase    Reapply commits on top of another base tip
-   reset     Reset current HEAD to the specified state
-   switch    Switch branches
-   tag       Create, list, delete or verify a tag object signed with GPG
+ **Browse  Coins :**
+- Explore a variety of coins available on app.
+  
+ **Manage Your Favorite List:**
+- Easily add or remove  coin  to your favorite list for see theri changes.
 
-collaborate (see also: git help workflows)
-   fetch     Download objects and refs from another repository
-   pull      Fetch from and integrate with another repository or a local branch
-   push      Update remote refs along with associated objects
+## Tech Stack
 
-'git help -a' and 'git help -g' list available subcommands and some
-concept guides. See 'git help <command>' or 'git help <concept>'
-to read about a specific subcommand or concept.
-See 'git help git' for an overview of the system.
+- **Xcode:** Version 15.2
+- **Language:** Swift 5.
+- **Minimum iOS Version:** 13.0
+- **Dependency Manager:** SPM
+
+## Package Dependencies
+
+- **Alamofire** Version 5.9.1 for http
+- **SDWebImage** Version 5.19.1 for loading images
+
+  
+
+ ## Screenshots
+
+| Image 1                | Image 2                | Image 3                |
+|------------------------|------------------------|------------------------|
+| ![Listing1](https://github.com/NecatiAlperen/tgy-Crypto/assets/109997859/c6b22920-6545-4e30-9fe8-8414452e5a97) | ![Listing2](https://github.com/NecatiAlperen/tgy-Crypto/assets/109997859/af79dda0-619c-472f-a9e4-d21c7ee194f5) | ![Detail1](https://github.com/NecatiAlperen/tgy-Crypto/assets/109997859/e24ff7e3-4156-4809-af1d-7eb20faf4691) |
+| ![Detail2](https://github.com/NecatiAlperen/tgy-Crypto/assets/109997859/2fd30cd8-2b7a-4ca1-8309-05e28179c000) | ![Basket1](https://github.com/NecatiAlperen/tgy-Crypto/assets/109997859/251845e2-0146-4745-8218-984b8b2d9560) | ![Basket2](https://github.com/NecatiAlperen/tgy-Crypto/assets/109997859/3625c292-1569-4ac4-902c-bad7d5981def) |
+
+
+
